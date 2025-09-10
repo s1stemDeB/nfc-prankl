@@ -7,7 +7,19 @@
 <body style="margin:0; background:black; text-align:center;">
 
 <h1>Поднеси NFC и тапни экран 😳</h1>
-<button id="playBtn">Воспроизвести звук</button>
+<button id="playBtn" 
+        style="
+          font-size: 36px;       /* размер текста */
+          padding: 20px 40px;    /* внутренние отступы (высота и ширина) */
+          border-radius: 15px;   /* закругление углов */
+          background-color: red; /* цвет кнопки */
+          color: white;          /* цвет текста */
+          border: none;          /* убрать границу */
+          cursor: pointer;       /* указатель при наведении */
+        ">
+  Воспроизвести звук
+</button>
+
 
 <audio id="sound" preload="auto">
   <source src="meme-groan.mp3" type="audio/mpeg">
