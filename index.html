@@ -4,10 +4,22 @@
   <meta charset="UTF-8">
   <title>😏</title>
 </head>
-<body style="margin:0; background:black;">
-  <audio autoplay loop>
-    <source src="meme-groan.mp3" type="audio/mpeg">
-  </audio>
-  <h1 style="color:white; text-align:center; margin-top:40vh;">😳</h1>
+<body style="margin:0; background:black; text-align:center;">
+
+<h1>Поднеси NFC и тапни экран 😳</h1>
+<button id="playBtn">Воспроизвести звук</button>
+
+<audio id="sound" preload="auto">
+  <source src="moan.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const audio = document.getElementById('sound');
+  document.getElementById('playBtn').addEventListener('click', () => {
+    audio.volume = 1.0; // максимальная громкость
+    audio.play();
+  });
+</script>
+
 </body>
 </html>
