@@ -31,6 +31,16 @@
     audio.volume = 1.0; // максимальная громкость
     audio.play();
   });
+  document.addEventListener("open", () => {
+    audio.volume = 1.0;
+    audio.play();
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+  audio.volume = 1.0;
+  audio.play().catch(() => {
+    console.log("Автоплей заблокирован, ждем клика пользователя");
+  });
+});
 </script>
 
 </body>
