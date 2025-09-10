@@ -2,24 +2,42 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>😏Окак</title>
+  <title>😏Окак окак</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 24px;
+    }
+
+    #playBtn {
+      width: 100vw;             /* кнопка на весь экран по ширине */
+      height: calc(100vh - 60px); /* высота = экран минус место для заголовка */
+      font-size: 48px;          /* большой текст */
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  </style>
 </head>
-<body style="margin:0; background:black; text-align:center;">
+<body>
 
 <h1>Поднеси NFC и тапни экран 😳</h1>
-<button id="playBtn" 
-        style="
-          font-size: 36px;       /* размер текста */
-          padding: 50px 80px;    /* внутренние отступы (высота и ширина) */
-          border-radius: 15px;   /* закругление углов */
-          background-color: red; /* цвет кнопки */
-          color: white;          /* цвет текста */
-          border: none;          /* убрать границу */
-          cursor: pointer;       /* указатель при наведении */
-        ">
-  Воспроизвести звук
-</button>
 
+<button id="playBtn">Воспроизвести звук</button>
 
 <audio id="sound" preload="auto">
   <source src="meme-groan.mp3" type="audio/mpeg">
@@ -27,20 +45,21 @@
 
 <script>
   const audio = document.getElementById('sound');
-  document.getElementById('playBtn').addEventListener('click', () => {
+  const btn = document.getElementById('playBtn');
+
+  // Воспроизвести звук при клике на кнопку
+  btn.addEventListener('click', () => {
     audio.volume = 1.0; // максимальная громкость
     audio.play();
   });
-  document.addEventListener("open", () => {
-    audio.volume = 1.0;
-    audio.play();
-  });
+
+  // Попытка автозапуска при загрузке страницы
   document.addEventListener("DOMContentLoaded", () => {
-  audio.volume = 1.0;
-  audio.play().catch(() => {
-    console.log("Автоплей заблокирован, ждем клика пользователя");
+    audio.volume = 1.0;
+    audio.play().catch(() => {
+      console.log("Автоплей заблокирован, ждем клика пользователя");
+    });
   });
-});
 </script>
 
 </body>
